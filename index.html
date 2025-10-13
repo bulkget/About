@@ -44,4 +44,18 @@
   const p=new URLSearchParams(location.search);
   document.getElementById('ver').textContent=p.get('v')||'unknown';
 </script>
+  <div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+  this.page.url = "https://bulkget.github.io/About/";  // URL หน้าจริงของคุณ
+  this.page.identifier = "bulkget_about_page"; // id ของหน้านี้
+};
+(function() {  // DO NOT EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://YOUR-SHORTNAME.disqus.com/embed.js'; // เปลี่ยน YOUR-SHORTNAME
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
 </body></html>
