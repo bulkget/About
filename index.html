@@ -5,46 +5,66 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>About - BulkGet Viewer</title>
 <style>
-  :root { color-scheme: dark light }
+  :root {
+    --bg: #000;
+    --card: rgba(255,255,255,0.06);
+    --border: rgba(255,255,255,0.08);
+    --text: #f1f1f1;
+    --muted: rgba(255,255,255,0.55);
+    --link: #7ab7ff;
+    --radius: 16px;
+    --shadow: 0 4px 22px rgba(0,0,0,0.45);
+  }
+
+  * {
+    box-sizing: border-box;
+    font-family: -apple-system, system-ui, "Segoe UI", Roboto, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+  }
 
   body {
     margin: 0;
-    padding: 24px;
-    background: #0b0b0b;
-    color: #eee;
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    font-size: 15px;         /* ปรับขนาดพื้นฐาน */
-    line-height: 1.6;
+    padding: 26px 18px 80px;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15.5px;
+    line-height: 1.65;
+    display: flex;
+    justify-content: center;
   }
 
   .wrap {
+    width: 100%;
     max-width: 720px;
-    margin: auto;
   }
 
   h1 {
     margin: 0 0 8px;
-    font-size: 20px;         /* ขนาดหัวเรื่องใหญ่สุด */
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
   }
 
   .muted {
-    color: #aaa;
+    color: var(--muted);
     font-size: 13.5px;
     margin-bottom: 24px;
   }
 
   .card {
-    background: #151515;
-    border-radius: 14px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
     padding: 16px 18px;
     margin: 14px 0;
-    font-size: 15px;
+    font-size: 15.5px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(12px);
   }
 
   a {
-    color: #7ab7ff;
+    color: var(--link);
     text-decoration: none;
-    font-size: 15px;
   }
 
   a:hover {
@@ -69,6 +89,12 @@
     font-size: 15px;
     max-width: 100%;
   }
+
+  /* Mobile tweak */
+  @media (max-width: 480px) {
+    body { padding: 20px 14px 60px; }
+    .card { border-radius: 14px; padding: 14px 16px; }
+  }
 </style>
 </head>
 
@@ -85,14 +111,16 @@
 
     <div class="card">
       <strong>About</strong>
-      <p>BulkGet Viewer is a lightweight WebView mini browser that helps you access and manage web tools easily.</p>
+      <p>
+        BulkGet Viewer is a lightweight WebView mini browser that helps you access and manage web tools easily.
+      </p>
     </div>
 
     <div class="card">
       <strong>Notes</strong>
       <ul>
         <li>No personal data is collected by the app itself.</li>
-        <li>Third-party services (e.g., Google AdMob) may collect limited analytics/ads data.</li>
+        <li>Third-party services (e.g., Google AdMob) may collect limited analytics or ads data.</li>
       </ul>
     </div>
 
@@ -100,7 +128,7 @@
   </div>
 
   <script>
-    // อ่านพารามิเตอร์ v= จากลิงก์ที่คุณส่งมาจากแอป เพื่อโชว์เวอร์ชันในหน้า
+    // อ่านพารามิเตอร์ ?v= จาก URL เช่น about.html?v=1.0.0
     const p = new URLSearchParams(location.search);
     document.getElementById('ver').textContent = p.get('v') || 'unknown';
   </script>
