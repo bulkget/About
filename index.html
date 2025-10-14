@@ -127,10 +127,10 @@
     <p class="muted">© 2025 BULKGET DEV.TS</p>
   </div>
 
-  <script>
+<script>
     // อ่านพารามิเตอร์ ?v= จาก URL เช่น about.html?v=1.0.0
     const p = new URLSearchParams(location.search);
-    document.getElementById('ver').textContent = p.get('v') || '3.0.1';
+    document.getElementById('ver').textContent = p.get('v') || 'unknown';
   </script>
 </body>
 </html>
